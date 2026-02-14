@@ -1,0 +1,40 @@
+{
+  "manifest_version": 3,
+  "name": "Siesta",
+  "version": "0.1.0",
+  "description": "Learn languages naturally through immersion — Siesta replaces words on any webpage with your target language.",
+  "permissions": ["storage", "activeTab", "contextMenus"],
+  "host_permissions": ["http://127.0.0.1:7749/*"],
+  "background": {
+    "service_worker": "background/service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["utils/storage.js", "content/content.js", "content/side-panel.js"],
+      "css": ["content/content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["languages/*.json"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siesta</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup">
+    <header class="header">
+      <h1 class="logo">siesta</h1>
+      <label class="toggle">
+        <input type="checkbox" id="enabled" checked>
+        <span class="toggle-slider"></span>
+      </label>
+    </header>
+
+    <section class="section">
+      <label class="label">Language</label>
+      <select id="language" class="select">
+        <option value="italian">Italian</option>
+        <option value="spanish">Spanish</option>
+        <option value="french">French</option>
+        <option value="german">German</option>
+        <option value="hindi">Hindi</option>
+        <option value="tamil">Tamil</option>
+        <option value="mandarin">Mandarin</option>
+      </select>
+    </section>
+
+    <section class="section">
+      <div class="slider-header">
+        <label class="label">Immersion</label>
+        <span id="immersion-tier" class="tier">Curious</span>
+      </div>
+      <input type="range" id="immersion" class="slider" min="10" max="100" step="5" value="10">
+      <div class="slider-labels">
+        <span>10%</span>
+        <span id="immersion-value">10%</span>
+        <span>100%</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <label class="label">Progress</label>
+      <div class="progress-bar">
+        <div id="progress-exposed" class="progress-segment exposed"></div>
+        <div id="progress-familiar" class="progress-segment familiar"></div>
+        <div id="progress-acquired" class="progress-segment acquired"></div>
+      </div>
+      <div class="progress-legend">
+        <span class="legend-item"><span class="dot exposed-dot"></span> <span id="stat-exposed">0</span> exposed</span>
+        <span class="legend-item"><span class="dot familiar-dot"></span> <span id="stat-familiar">0</span> familiar</span>
+        <span class="legend-item"><span class="dot acquired-dot"></span> <span id="stat-acquired">0</span> acquired</span>
+      </div>
+    </section>
+
+    <section class="section">
+      <label class="label">Ask Siesta</label>
+      <div class="ask-container">
+        <input type="text" id="ask-input" class="ask-input" placeholder="Ask about a word or phrase...">
+        <button id="ask-btn" class="ask-btn">→</button>
+      </div>
+      <div id="ask-response" class="ask-response"></div>
+    </section>
+
+    <section class="section site-toggle-section">
+      <div class="site-toggle-row">
+        <div class="site-toggle-info">
+          <span class="label" style="margin-bottom: 0;">Current site</span>
+          <span id="site-hostname" class="site-hostname">—</span>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="site-enabled" checked>
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </section>
+
+    <details class="settings-details">
+      <summary class="settings-toggle">API Settings</summary>
+      <div class="section">
+        <input type="password" id="api-key" class="api-input" placeholder="Anthropic API key">
+        <button id="save-key" class="save-btn">Save</button>
+        <span id="key-status" class="key-status"></span>
+      </div>
+    </details>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
